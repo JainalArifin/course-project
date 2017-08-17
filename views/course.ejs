@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/student"><button type="button" name="button">Student</button></a>
+    <a href="/course"><button type="button" name="button">Course</button></a>
+    <br><br>
+    <h2>Kursus</h2>
+    <table border="2">
+      <tr>
+        <th>No</th>
+        <th>Nama Kursus</th>
+        <th>Harga</th>
+      </tr>
+      <% dtCourse.forEach(dataCourse =>{ %>
+        <tr>
+          <td><%= dataCourse.id %></td>
+          <td><%= dataCourse.course_name %></td>
+          <td><%= dataCourse.price %></td>
+        </tr>
+      <% } ) %>
+    </table>
+  </body>
+</html>
