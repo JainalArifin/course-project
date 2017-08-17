@@ -14,12 +14,14 @@
         <th>No</th>
         <th>Nama Kursus</th>
         <th>Harga</th>
+        <th>Pilih kursus</th>
       </tr>
       <% dtCourse.forEach(dataCourse =>{ %>
         <tr>
           <td><%= dataCourse.id %></td>
           <td><%= dataCourse.course_name %></td>
           <td><%= dataCourse.price %></td>
+          <td><input type="checkbox" value="<%= dataCourse.id %>"><b>Pilih</b> <%= dataCourse.course_name %></td>
         </tr>
       <% } ) %>
     </table>
