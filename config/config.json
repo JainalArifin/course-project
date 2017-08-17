@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "jainalarifin",
-    "password": 	"pakuhaji",
-    "database": "db",
-    "host": "127.0.0.1",
+    "username": "ahmad",
+    "password": 	"hacktiv8",
+    "database": "project",
+    "host": "localhost",
+    "port": 5430,
     "dialect": "postgres"
   },
   "test": {
