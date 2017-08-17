@@ -35,10 +35,14 @@ router.post('/', (req, res) => {
         res.redirect('/student')
       })
       .catch((err) => {
-       res.render('addStudent', {errmsg: err.message});
+       res.render('addStudent', {
+         errmsg: err.message
+       });
       })
     } else {
-      res.render('addStudent', {errmsg: 'Email sudah ada'});
+      res.render('addStudent', {
+        errmsg: 'Email sudah ada'
+      });
      }
     })
   })
@@ -46,7 +50,9 @@ router.post('/', (req, res) => {
   router.get('/edit/:id', (req, res) => {
    models.Student.findById(req.params.id)
    .then((rows) => {
-     res.render('editStudent',{data:rows, errmsg: '', pageTitle: 'Edit Student'})
+     res.render('editStudent', {
+       data:rows, errmsg: '', pageTitle: 'Edit Student'
+     })
    })
  })
 
@@ -86,7 +92,9 @@ router.post('/edit/:id', (req, res) => {
     .catch((err) => {
       models.Student.findById(req.params.id)
       .then((rows) => {
-        res.render('editStudent',{data:rows, errmsg: err})
+        res.render('editStudent',{
+          data:rows, errmsg: err
+        })
       })
     })
   } else {
