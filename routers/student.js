@@ -126,5 +126,22 @@ router.post('/edit/:id/addcourse', (req, res) => {
   })
 })
 
+router.get('/:id/detailStudent', (req, res) => {
+  models.StudentCourse.findAll({
+    where: {
+      StudentId: req.params.id
+    },
+    include: [{all:true}]
+  })
+  .then(data => {
+    console.log(data);
+    // res.send(data);
+    res.render('studentCourse', {
+      dataStudent: data
+    });
+  })
+})
+
+
 
 module.exports = router

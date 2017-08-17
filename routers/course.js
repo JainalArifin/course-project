@@ -27,39 +27,41 @@ router.post('/', (req, res) => {
     console.log(err);
   })
 })
-//
-// router.get('/edit/:id', (req, res) => {
-//   models.Course.findOne({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//   .then(data => {
-//     res.render('editCourse', {
-//       data: data}
-//     )
-//   })
-//   .catch(() => {
-//     console.log(err);
-//   })
-//  })
-//
-// router.post('/edit/:id', (req, res) => {
-//   models.Course.update({
-//     course_name: req.body.course_name
-//   }, {
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//   .then(() => {
-//     res.redirect('/course')
-//   })
-//   .catch( err => {
-//     console.log(err);
-//   })
-// })
-//
+
+
+
+router.get('/edit/:id', (req, res) => {
+  models.Course.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(data => {
+    res.render('editCourse', {
+      data: data}
+    )
+  })
+  .catch(() => {
+    console.log(err);
+  })
+ })
+
+router.post('/edit/:id', (req, res) => {
+  models.Course.update({
+    course_name: req.body.course_name
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => {
+    res.redirect('/course')
+  })
+  .catch( err => {
+    console.log(err);
+  })
+})
+
 // router.get('/delete/:id', (req, res) => {
 //   models.Course.destroy({
 //     where: {

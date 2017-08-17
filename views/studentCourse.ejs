@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Subject Page</title>
+  </head>
+  <body>
+    <% if(dataStudent[0] === undefined){ %>
+      <h1>Anda Belum Mengambil Kursus !!!</h1>
+      <button id="btn-back" onclick="window.location='/student'">Back To Student List</button>
+    <% }else{ %>
+      <h1>Data Student <%= dataStudent[0].Student.name %></h1>
+      <div>
+        <button id="btn-back" onclick="window.location='/student'">Back To Student List</button><br><br>
+        <table border="1">
+          <tr>
+            <th>No</th>
+            <th>Course Name</th>
+            <th>Harga</th>
+          </tr>
+          <% var hasil = 0 %>
+          <%var no = 1; for(var i = 0 ; i < dataStudent.length; i++) {%>
+              <tr>
+                <td><%= no %><% no += 1 %></td>
+                <td><%= dataStudent[i].Course.course_name %></td>
+                <td>Rp. <%= dataStudent[i].Course.price%></td>
+                <% hasil += dataStudent[i].Course.price %>
+              </tr>
+          <% } %>
+          <%= hasil %>
+        </table>
+      </div><br><br>
+      <form class="" action="" method="">
+        <textarea name="name" rows="20" cols="100">Atas Nama : <%= dataStudent[0].Student.name %>
+        </textarea><br>
+        <button type="submit" >kirim email</button>
+      </form>
+    <% } %>
+    <tbody>
+
+    </tbody>
+  </body>
+</html>
