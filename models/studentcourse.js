@@ -10,5 +10,9 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  StudentCourse.accociate = (models) => {
+    StudentCourse.belongsTo(models.Student);
+    StudentCourse.belongsTo(models.Course)
+  }
   return StudentCourse;
 };
