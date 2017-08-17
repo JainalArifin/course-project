@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     StudentId: DataTypes.INTEGER,
     CourseId: DataTypes.INTEGER
   });
-  StudentCourse.accociate = (models) => {
+  StudentCourse.associate = (models) => {
     StudentCourse.belongsTo(models.Student);
     StudentCourse.belongsTo(models.Course)
   }

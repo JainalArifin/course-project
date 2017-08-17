@@ -108,6 +108,9 @@ router.get('/:id/detailCourse', (req, res) => {
       dataCourse: data
     });
   })
+  // .catch(err => {
+  //   res.render('courseStudents', {errmsg: 'Data Masih Kosong'})
+  // })
 })
 
 
