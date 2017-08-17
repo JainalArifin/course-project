@@ -3,24 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Subject Page</title>
-    <link href="/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Data Course <%= dataCourse[0].Course.course_name %></h1>
-    <div>
-      <button id="btn-back" onclick="window.location='/subject'">Back To Subject List</button>
-      <table border="1">
-        <tr>
-          <th>No</th>
-          <th>Nama Murid</th>
-        </tr>
-        <%var no = 1; for(var i = 0 ; i < dataCourse.length; i++) {%>
-            <tr>
-              <td><%= no %><% no += 1 %></td>
-              <td><%= dataCourse[i].Student.name %></td>
-            </tr>
-        <% } %>
-      </table>
-    </div>
+    <% if(dataCourse[0] === undefined){ %>
+      <h1>Belum ada peminat pada kursus INI !!!</h1>
+      <button id="btn-back" onclick="window.location='/course'">Back To Subject List</button>
+    <% }else{ %>
+      <h1>Data Course <%= dataCourse[0].Course.course_name %></h1>
+      <div>
+        <button id="btn-back" onclick="window.location='/course'">Back To Subject List</button>
+        <table border="1">
+          <tr>
+            <th>No</th>
+            <th>Student Name</th>
+          </tr>
+          <%var no = 1; for(var i = 0 ; i < dataCourse.length; i++) {%>
+              <tr>
+                <td><%= no %><% no += 1 %></td>
+                <td><%= dataCourse[i].Student.name %></td>
+              </tr>
+          <% } %>
+        </table>
+      </div>
+    <% } %>
+
   </body>
 </html>
