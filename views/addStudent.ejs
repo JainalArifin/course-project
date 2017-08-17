@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Student</title>
+  </head>
+  <body>
+    <div>
+      <% if(errmsg != ''){%>
+        <span><%= errmsg%></span>
+      <% } %>
+    </div>
+    <form class="" action="/student" method="post">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="address" placeholder="Address">
+      <input type="text" name="email" placeholder="Email">
+      <input type="radio" name="gender" value="Perempuan" checked>Perempuan
+      <input type="radio" name="gender" value="Laki-laki" class="left">Laki-laki
+      <button type="submit" >Tambah</button>
+    </form>
+  </body>
+</html>
