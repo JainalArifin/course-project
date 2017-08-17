@@ -16,6 +16,7 @@
         <th>Gender</th>
         <th>Address</th>
         <th>Email</th>
+        <th>Kursus Yang Di Ambil</th>
         <th>Option</th>
         <th>Action</th>
       </tr>
@@ -26,6 +27,7 @@
           <td><%= dataStudent.gender %></td>
           <td><%= dataStudent.address %></td>
           <td><%= dataStudent.email %></td>
+          <td><a href="detailCourse/<%=dataStudent.id%>">Details</a></td>
           <td><a href='student/edit/<%= dataStudent.id %>/addcourse'>Add Course</a></td>
             <td><a href='student/edit/<%= dataStudent.id %>'> Edit</a> || <a href='student/delete/<%= dataStudent.id %>' onclick="return confirm('Delete <%= dataStudent.name%> ?');"> Delete</a></td>
         </tr>
