@@ -21,14 +21,12 @@
       </tr>
       <% dataStudent.forEach(dataStudent=> { %>
         <tr>
-          <td><input type='checkbox' value='<%= dataStudent.id %>'/></td>
+          <td><input type='text' value='<%= dataStudent.id %>'/></td>
           <td><%= dataStudent.name %></td>
           <td><%= dataStudent.gender %></td>
           <td><%= dataStudent.address %></td>
           <td><%= dataStudent.email %></td>
-          <td>
-            <a href=""><button type="button" name="button">Details</button></a>
-          </td>
+          <td><a href='student/edit/<%= dataStudent.id %>/addcourse'>Add Course</a></td>
             <td><a href='student/edit/<%= dataStudent.id %>'> Edit</a> || <a href='student/delete/<%= dataStudent.id %>' onclick="return confirm('Delete <%= dataStudent.name%> ?');"> Delete</a></td>
         </tr>
       <% }) %>

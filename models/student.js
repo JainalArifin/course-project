@@ -12,12 +12,6 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
   Student.accociate = (models) => {
     Student.belongsToMany(models.Course, {

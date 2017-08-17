@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
        email:req.body.email
       }
     })
-  .then(function(result){
+  .then((result) => {
     if(!result){
       models.Student.create({
         name: req.body.name,
@@ -35,20 +35,17 @@ router.post('/', (req, res) => {
         res.redirect('/student')
       })
       .catch((err) => {
-       res.render('addStudent', {errmsg: err.message});
+       res.render('addStudent', {
+         errmsg: err.message
+       });
       })
     } else {
-      res.render('addStudent', {errmsg: 'Email sudah ada'});
+      res.render('addStudent', {
+        errmsg: 'Email sudah ada'
+      });
      }
     })
   })
-
-  router.get('/edit/:id', (req, res) => {
-   models.Student.findById(req.params.id)
-   .then((rows) => {
-     res.render('editStudent',{data:rows, errmsg: '', pageTitle: 'Edit Student'})
-   })
- })
 
  router.get('/delete/:id', (req, res) => {
   models.Student.destroy({
@@ -61,6 +58,14 @@ router.post('/', (req, res) => {
   })
 })
 
+router.get('/edit/:id', (req, res) => {
+  models.Student.findById(req.params.id)
+  .then((rows) => {
+    res.render('editStudent',{
+      data:rows, errmsg: ''
+    })
+  })
+})
 
 router.post('/edit/:id', (req, res) => {
    models.Student.findOne({
@@ -86,7 +91,9 @@ router.post('/edit/:id', (req, res) => {
     .catch((err) => {
       models.Student.findById(req.params.id)
       .then((rows) => {
-        res.render('editStudent',{data:rows, errmsg: err})
+        res.render('editStudent',{
+          data:rows, errmsg: err
+        })
       })
     })
   } else {
@@ -95,6 +102,29 @@ router.post('/edit/:id', (req, res) => {
  })
 })
 
+router.get('/edit/:id/addcourse', (req, res) => {
+  models.Student.findById(req.params.id)
+  .then((rows) => {
+    models.Course.findAll()
+    .then((dataCourse) => {
+      console.log(rows);
+      res.render('addCourseStudent', {
+        data:rows, data2: dataCourse
+      })
+    })
+  })
+})
+
+
+router.post('/edit/:id/addcourse', (req, res) => {
+  models.StudentCourse.create({
+    StudentId: parseInt(req.params.id),
+    CourseId: req.body.CourseId
+  })
+  .then(() =>{
+    res.redirect('/student')
+  })
+})
 
 
 module.exports = router
